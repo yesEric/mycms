@@ -12,3 +12,5 @@ mycms
   - 目前测试index.jsp正常显示Hello World!
 - 添加了Resource表的Dao访问 2014-2-18 17:19:11
 
+- todo：增加Resource实体的Service层和Web层。参考一下DDD，现在的三层结构不一定好。
+
