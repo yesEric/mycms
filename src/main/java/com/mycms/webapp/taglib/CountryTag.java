@@ -1,6 +1,6 @@
 package com.mycms.webapp.taglib;
 
-import com.interstore.model.LabelValue;
+import com.mycms.model.LabelValue;
 import org.displaytag.tags.el.ExpressionEvaluator;
 
 import javax.servlet.jsp.JspException;
@@ -108,7 +108,7 @@ public class CountryTag extends TagSupport {
 
             for (Iterator i = countries.iterator(); i.hasNext(); ) {
                 LabelValue country = (LabelValue) i.next();
-                sb.append("    <option value=\"" + country.getValue() + "\"");
+                sb.append("<option value=\"" + country.getValue() + "\"");
 
                 if ((selected != null) && selected.equals(country.getValue())) {
                     sb.append(" selected=\"selected\"");

@@ -27,7 +27,7 @@ package com.mycms.webapp.taglib;
 
 import javax.servlet.jsp.tagext.TagSupport;
 
-import com.interstore.webapp.jsp.EscapeXmlELResolver;
+import com.mycms.webapp.jsp.EscapeXmlELResolver;
 
 /**
  * Tag surrounds JSP code in which EL expressions should not be XML-escaped.

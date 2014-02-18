@@ -25,6 +25,9 @@
         <module name="mycms" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mycms" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

@@ -30,7 +30,8 @@
         <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
 
         <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-
+        <skipTests>true</skipTests>
+        <dbunit.schema>SYSTEM</dbunit.schema>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.7.4</aspectj.version>
         <commons.beanutils.version>1.8.3</commons.beanutils.version>
@@ -82,8 +83,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
 
             </plugin>
@@ -739,6 +740,7 @@
                         <artifactId>dbunit-maven-plugin</artifactId>
                         <configuration>
                             <src>src/main/resources/default-data.xml</src>
+                            <url/>
                         </configuration>
                     </plugin>
                 </plugins>
