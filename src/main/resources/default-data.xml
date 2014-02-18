@@ -14,5 +14,24 @@
         </row>
     </table>
 
+    <table name="Resource">
+        <column>id</column>
+        <column>url</column>
+        <column>priority</column>
+        <column>type</column>
+        <column>name</column>
+        <column>memo</column>
+
+
+        <row>
+            <value description="id">1</value>
+            <value description="url">/resources</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">Resource</value>
+            <value description="memo">定义资源信息的菜单项</value>
+
+        </row>
+    </table>
 
 </dataset>

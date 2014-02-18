@@ -30,8 +30,7 @@
         <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
 
         <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-        <skipTests>true</skipTests>
-        <dbunit.schema>SYSTEM</dbunit.schema>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.7.4</aspectj.version>
         <commons.beanutils.version>1.8.3</commons.beanutils.version>

@@ -15,7 +15,7 @@ public class PersonDaoHibernate extends GenericDaoHibernate<Person, Long> implem
         super(Person.class);
     }
 
-    @Override
+
     public List<Person> findByLastName(String lastName) {
         return this.getSession().createCriteria(Person.class).add(Restrictions.eq("lastName", lastName)).list();
     }

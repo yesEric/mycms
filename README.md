@@ -10,4 +10,5 @@ mycms
   - 删除了Appfuse的menu.jsp，计划不再使用StructMenu
   - 修改Default.jsp使用Bootstrap和JQuery
   - 目前测试index.jsp正常显示Hello World!
+- 添加了Resource表的Dao访问 2014-2-18 17:19:11
 
