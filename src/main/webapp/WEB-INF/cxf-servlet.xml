@@ -13,20 +13,5 @@
 
     <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 
-    <jaxrs:server address="/api">
-        <jaxrs:features>
-            <cxf:logging/>
-        </jaxrs:features>
-
-
-        <jaxrs:providers>
-            <ref bean="jsonProvider"/>
-        </jaxrs:providers>
-        <jaxrs:extensionMappings>
-            <entry key="json" value="application/json"/>
-            <entry key="xml" value="application/xml"/>
-            <entry key="feed" value="application/atom+xml"/>
-        </jaxrs:extensionMappings>
-    </jaxrs:server>
 
 </beans>
