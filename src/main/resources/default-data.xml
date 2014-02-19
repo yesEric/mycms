@@ -21,17 +21,58 @@
         <column>type</column>
         <column>name</column>
         <column>memo</column>
+        <column>parentId</column>
 
 
         <row>
             <value description="id">1</value>
-            <value description="url">/resources</value>
+            <value description="url">/productAndCatalog.jsp</value>
             <value description="priority">1</value>
             <value description="type">1</value>
-            <value description="name">Resource</value>
-            <value description="memo">定义资源信息的菜单项</value>
-
+            <value description="name">产品与目录管理</value>
+            <value description="memo">产品与目录管理</value>
+            <value description="parentId">0</value>
         </row>
+
+        <row>
+            <value description="id">2</value>
+            <value description="url">/products</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">产品管理</value>
+            <value description="memo"></value>
+            <value description="parentId">1</value>
+        </row>
+        <row>
+            <value description="id">3</value>
+            <value description="url">/catalogs</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">产品目录管理</value>
+            <value description="memo"></value>
+            <value description="parentId">1</value>
+        </row>
+
+        <row>
+            <value description="id">4</value>
+            <value description="url">/purchasePrices</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">采购定价管理</value>
+            <value description="memo"></value>
+            <value description="parentId">1</value>
+        </row>
+        <row>
+            <value description="id">6</value>
+            <value description="url">/purManagements</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">采购管理</value>
+            <value description="memo"></value>
+            <value description="parentId">0</value>
+        </row>
+
+
     </table>
 
 </dataset>

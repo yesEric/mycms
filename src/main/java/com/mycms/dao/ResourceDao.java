@@ -10,5 +10,7 @@ public interface ResourceDao extends GenericDao<Resource, Long> {
 
     List<Resource> findByName(String name);
 
+    List<Resource> findTopMenus();
+
 
 }

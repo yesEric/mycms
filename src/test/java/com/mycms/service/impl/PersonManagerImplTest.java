@@ -47,6 +47,7 @@ public class PersonManagerImplTest extends BaseManagerMockTestCase {
         assertSame(persons, result);
     }
 
+
     @Test
     public void testSavePerson() {
         log.debug("testing save...");
@@ -60,6 +61,7 @@ public class PersonManagerImplTest extends BaseManagerMockTestCase {
         //then
         verify(dao).save(person);
     }
+
     @Test
     public void testRemovePerson() {
         log.debug("testing remove...");

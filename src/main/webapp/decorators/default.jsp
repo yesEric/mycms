@@ -16,11 +16,12 @@
           href="<c:url value='/styles/style.css'/>"/>
     <!--[if lt IE 9]>
     <script src="/scripts/lib/html5shiv.js"></script> <![endif]-->
-    <decorator:head/>
+
     <script type="text/javascript"
             src="<c:url value='/scripts/lib/jquery-1.8.2.min.js'/>"></script>
     <script type="text/javascript"
             src="<c:url value='/scripts/lib/bootstrap-2.2.1.min.js'/>"></script>
+    <decorator:head/>
 </head>
 <body
         <decorator:getProperty property="body.id" writeEntireProperty="true"/>
@@ -28,20 +29,25 @@
 
 <div class="container">
     <h1 class="page-header">
-        Barner
-        <small>Resize Response</small>
+
+        <small><fmt:message key="webapp.name"/></small>
     </h1>
     <div class="navbar">
         <div class="navbar-inner">
             <a href="#" class="btn btn-navbar" data-toggle="collapse"
                data-target=".nav-collapse"> <span class="icon-bar"></span> <span
                     class="icon-bar"></span> <span class="icon-bar"></span>
-            </a> <a href="#" class="brand"> Bootstrap</a>
+            </a> <a href="#" class="brand"> FunCMS</a>
+
 
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active"><a href="#">HomePage</a></li>
-                    <li><a href="#">Item1</a></li>
+                    <c:if test="${menus!=null}">
+                        <c:forEach var="menu" items="${menus}">
+                            <li><a href="#">${menu.name}</a></li>
+                        </c:forEach>
+                    </c:if>
                     <li class="dropdown"><a class="dropdown-toggle"
                                             data-toggle="dropdown" href="#">Item2 </a>
                         <ul class="dropdown-menu">
