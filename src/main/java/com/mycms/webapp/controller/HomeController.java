@@ -17,7 +17,9 @@ import java.util.List;
  */
 @Controller
 @SessionAttributes({"menus"})
-
+/**
+ * 登录主页的控制器.
+ */
 public class HomeController {
     private ResourceManager resourceManager;
 
@@ -32,7 +34,6 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView();
         List<Resource> menus = resourceManager.findTopMenus();
         modelAndView.addObject("menus", menus);
-        modelAndView.addObject("test", "aaa");
         modelAndView.setViewName("index");
 
         return modelAndView;

@@ -16,9 +16,12 @@ public class ResourceDaoTest extends BaseDaoTestCase {
 
     @Test
     public void testFindResourceByName() throws Exception {
-        List<Resource> resourceList = resourceDao.findByName("产品管理");
+        List<Resource> resourceList = resourceDao.findByName("产品与目录管理");
         assertTrue(resourceList.size() > 0);
+        Resource productMenu = resourceList.get(0);
+        assertTrue(productMenu.getSubResources().size() > 0);
     }
+
 
     @Test(expected = DataAccessException.class)
     public void testAddAndRemoveResourceDao() throws Exception {
@@ -42,8 +45,10 @@ public class ResourceDaoTest extends BaseDaoTestCase {
     @Test
     public void testFindTopMenus() {
         List<Resource> topMenus = resourceDao.findTopMenus();
-        System.out.println("====" + topMenus.size());
+
         assertNotNull(topMenus);
         assertEquals(2, topMenus.size());
+
+
     }
 }

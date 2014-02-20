@@ -28,7 +28,7 @@ public class ResourceDaoHibernate extends GenericDaoHibernate<Resource, Long> im
      */
     @Override
     public List<Resource> findTopMenus() {
-        return this.findByParentIdAndType(new Long(0), new Integer(1));
+        return this.findByParentIdAndType(new Long(1), new Integer(1));
 
     }
 
@@ -40,6 +40,8 @@ public class ResourceDaoHibernate extends GenericDaoHibernate<Resource, Long> im
      * @return 根据父辈代码和类型查找资源对象.
      */
     private List<Resource> findByParentIdAndType(Long parentId, Integer type) {
-        return this.getSession().createCriteria(Resource.class).add(Restrictions.eq("parentId", parentId)).add(Restrictions.eq("type", type)).list();
+        Resource parent = new Resource();
+        parent.setId(parentId);
+        return this.getSession().createCriteria(Resource.class).add(Restrictions.eq("parent", parent)).add(Restrictions.eq("type", type)).list();
     }
 }

@@ -12,21 +12,21 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Eric on 14-2-19.
+ * Created by Eric on 14-2-20.
  */
-public class ResourceControllerTest extends BaseControllerTestCase {
+public class HomeControllerTest extends BaseControllerTestCase {
     @Autowired
-    ResourceController resourceController;
+    HomeController homeController;
 
     @Test
     public void testFindTopMenus() {
-        ModelAndView mav = resourceController.findTopMenus();
+        ModelAndView mav = homeController.home();
         ModelMap modelMap = mav.getModelMap();
-        List list = (List) modelMap.get("topMenuList");
+        List list = (List) modelMap.get("menus");
         Resource resource = (Resource) list.get(0);
-        resource.getSubResources();
-        assertNotNull(modelMap.get("topMenuList"));
-        assertTrue(((List) modelMap.get("topMenuList")).size() > 0);
+        resource.getSubResources().isEmpty();
+        assertNotNull(modelMap.get("menus"));
+        assertTrue(((List) modelMap.get("menus")).size() > 0);
 
     }
 }

@@ -1,3 +1,6 @@
+<%@ page import="com.mycms.model.Resource" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ include file="/common/taglibs.jsp" %>
 <html lang="en">
@@ -42,20 +45,28 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="#">HomePage</a></li>
+                    <li class="active"><a href="/"><fmt:message key="app.homepage"/></a></li>
                     <c:if test="${menus!=null}">
                         <c:forEach var="menu" items="${menus}">
-                            <li><a href="#">${menu.name}</a></li>
+
+
+                            <c:if test="${!menu.subResources.isEmpty()}">
+                                <li class="dropdown">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown" href="#">${menu.name} </a>
+
+                                <ul class="dropdown-menu">
+                                    <c:forEach var="submenu" items="${menu.subResources}">
+                                        <li><a href="${submenu.url}">${submenu.name}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </c:if>
+                            <c:if test="${menu.subResources.isEmpty()}">
+                                <li><a href="${menu.url}">${menu.name}</a></li>
+                            </c:if>
                         </c:forEach>
                     </c:if>
-                    <li class="dropdown"><a class="dropdown-toggle"
-                                            data-toggle="dropdown" href="#">Item2 </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">DropdownList1</a></li>
-                            <li><a href="#">DropdownList2</a></li>
-                            <li><a href="#">DropdownList3</a></li>
-                        </ul>
-                    </li>
+
                 </ul>
             </div>
         </div>

@@ -53,7 +53,7 @@ public class PersonFormControllerTest extends BaseControllerTestCase {
         request = newPost("/personform");
         request.addParameter("delete", "");
         person = new Person();
-        person.setId(2L);
+        person.setId(1L);
 
         BindingResult errors = new DataBinder(person).getBindingResult();
         form.onSubmit(person, errors, request, new MockHttpServletResponse());

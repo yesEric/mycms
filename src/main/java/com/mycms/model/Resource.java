@@ -1,9 +1,11 @@
 package com.mycms.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Eric on 14-2-18.
@@ -16,18 +18,30 @@ public class Resource extends BaseObject {
     private Integer type; //1:菜单；2：按钮，3：其他资源
     private String name;
     private String memo;
-    private Long parentId;//如果是菜单，定义其父辈目录的id
+
+    private Resource parent;//如果是菜单，定义其父辈目录的id
+    //当前菜单的子菜单项目
+    private Set<Resource> subResources = new HashSet<Resource>();
 
 
-    public Long getParentId() {
-        return parentId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "parentId")
+    public Resource getParent() {
+        return parent;
     }
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setParent(Resource parent) {
+        this.parent = parent;
     }
 
-    public Resource() {
+    @OneToMany(mappedBy = "parent", targetEntity = Resource.class, cascade = {CascadeType.ALL})
+    @Fetch(FetchMode.JOIN)
+    public Set<Resource> getSubResources() {
+        return subResources;
+    }
+
+    public void setSubResources(Set<Resource> subResources) {
+        this.subResources = subResources;
     }
 
     @Override
