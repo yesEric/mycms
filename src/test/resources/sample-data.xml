@@ -79,6 +79,24 @@
             <value description="memo"></value>
             <value description="parentId">1</value>
         </row>
+        <row>
+            <value description="id">7</value>
+            <value description="url">#</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">系统管理</value>
+            <value description="memo"></value>
+            <value description="parentId">1</value>
+        </row>
+        <row>
+            <value description="id">8</value>
+            <value description="url">/resources</value>
+            <value description="priority">1</value>
+            <value description="type">1</value>
+            <value description="name">资源管理</value>
+            <value description="memo"></value>
+            <value description="parentId">7</value>
+        </row>
 
 
     </table>
