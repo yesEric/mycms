@@ -1,6 +1,3 @@
-<%@ page import="com.mycms.model.Resource" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ include file="/common/taglibs.jsp" %>
 <html lang="en">
@@ -52,8 +49,7 @@
 
                             <c:if test="${!menu.subResources.isEmpty()}">
                                 <li class="dropdown">
-                                <a class="dropdown-toggle"
-                                   data-toggle="dropdown" href="#">${menu.name} </a>
+                                <a href="${menu.url}">${menu.name} </a>
 
                                 <ul class="dropdown-menu">
                                     <c:forEach var="submenu" items="${menu.subResources}">
