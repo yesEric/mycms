@@ -44,4 +44,17 @@ public class ResourceDaoHibernate extends GenericDaoHibernate<Resource, Long> im
         parent.setId(parentId);
         return this.getSession().createCriteria(Resource.class).add(Restrictions.eq("parent", parent)).add(Restrictions.eq("type", type)).list();
     }
+
+    /**
+     * 根据父辈代码查找子项目
+     *
+     * @param parentId 父辈代码
+     * @return 符合条件的查询结果
+     */
+    @Override
+    public List<Resource> findByParent(Long parentId) {
+        Resource parent = new Resource();
+        parent.setId(parentId);
+        return this.getSession().createCriteria(Resource.class).add(Restrictions.eq("parent", parent)).list();
+    }
 }

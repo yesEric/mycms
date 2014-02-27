@@ -12,5 +12,7 @@ public interface ResourceDao extends GenericDao<Resource, Long> {
 
     List<Resource> findTopMenus();
 
+    List<Resource> findByParent(Long parentId);
+
 
 }

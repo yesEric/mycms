@@ -47,7 +47,17 @@ public class ResourceDaoTest extends BaseDaoTestCase {
         List<Resource> topMenus = resourceDao.findTopMenus();
 
         assertNotNull(topMenus);
-        assertEquals(2, topMenus.size());
+        assertTrue(topMenus.size() > 0);
+
+
+    }
+
+    @Test
+    public void testFindByParent() {
+        List<Resource> resourceList = resourceDao.findByParent(1L);
+
+        assertNotNull(resourceList);
+        assertTrue(resourceList.size() > 0);
 
 
     }

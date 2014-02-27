@@ -28,9 +28,11 @@
         <decorator:getProperty property="body.class" writeEntireProperty="true"/>>
 
 <div class="container">
-
-    <div class="navbar  navbar-fixed-top">
-    <div class="navbar-inner">
+    <h1 class="page-header">Nav
+        <small>Banner</small>
+    </h1>
+    <div class="navbar">
+        <div class="navbar-inner">
             <a href="#" class="btn btn-navbar" data-toggle="collapse"
                data-target=".nav-collapse"> <span class="icon-bar"></span> <span
                     class="icon-bar"></span> <span class="icon-bar"></span>
@@ -64,10 +66,14 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row-fluid">
+
+
+    <div class="container" id="content">
+        <%@ include file="/common/messages.jsp" %>
+        <div class="row">
             <decorator:body/>
-            <!-- 这里是将被继承的Body部分 -->
+
+
         </div>
     </div>
     <div id="footer">

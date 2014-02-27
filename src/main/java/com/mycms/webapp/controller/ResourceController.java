@@ -3,10 +3,13 @@ package com.mycms.webapp.controller;
 import com.mycms.model.Resource;
 import com.mycms.service.ResourceManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class ResourceController {
@@ -17,11 +20,19 @@ public class ResourceController {
         this.resourceManager = resourceManager;
     }
 
-    @RequestMapping("/topMenus")
-    public ModelAndView findTopMenus() {
-        ModelAndView mav = new ModelAndView().addObject("topMenuList", resourceManager.findTopMenus());
+    @RequestMapping("/resources")
+    public ModelAndView listResources(HttpServletRequest request) {
 
-        mav.setViewName("index");
+        //默认显示的是顶层项目
+        Long parentId = null;
+        if (request.getParameter("parentId") == null) {
+            parentId = 1L;
+        } else {
+            parentId = new Long(request.getParameter("parentId"));
+        }
+
+        ModelAndView mav = new ModelAndView().addObject("resourceList", resourceManager.findResourcesByParent(parentId));
+        mav.setViewName("resourceList");
         return mav;
     }
 }

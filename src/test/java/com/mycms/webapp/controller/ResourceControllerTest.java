@@ -3,6 +3,7 @@ package com.mycms.webapp.controller;
 import com.mycms.model.Resource;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,16 +18,19 @@ import static org.junit.Assert.assertTrue;
 public class ResourceControllerTest extends BaseControllerTestCase {
     @Autowired
     ResourceController resourceController;
+    private MockHttpServletRequest request;
 
     @Test
-    public void testFindTopMenus() {
-        ModelAndView mav = resourceController.findTopMenus();
+    public void testFindByParent() {
+        request = newGet("/resources");
+        request.addParameter("parentId", "1");
+        ModelAndView mav = resourceController.listResources(request);
         ModelMap modelMap = mav.getModelMap();
-        List list = (List) modelMap.get("topMenuList");
+        List list = (List) modelMap.get("resourceList");
         Resource resource = (Resource) list.get(0);
         resource.getSubResources();
-        assertNotNull(modelMap.get("topMenuList"));
-        assertTrue(((List) modelMap.get("topMenuList")).size() > 0);
+        assertNotNull(modelMap.get("resourceList"));
+        assertTrue(((List) modelMap.get("resourceList")).size() > 0);
 
     }
 }

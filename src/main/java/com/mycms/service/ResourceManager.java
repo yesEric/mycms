@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface ResourceManager extends GenericManager<Resource, Long> {
     List<Resource> findTopMenus();
+
+    List<Resource> findResourcesByParent(Long parentId);
 }

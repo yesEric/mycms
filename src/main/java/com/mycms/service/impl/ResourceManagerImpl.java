@@ -24,4 +24,9 @@ public class ResourceManagerImpl extends GenericManagerImpl<Resource, Long> impl
     public List<Resource> findTopMenus() {
         return resourceDao.findTopMenus();
     }
+
+    @Override
+    public List<Resource> findResourcesByParent(Long parentId) {
+        return resourceDao.findByParent(parentId);
+    }
 }

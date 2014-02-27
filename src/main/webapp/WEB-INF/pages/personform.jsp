@@ -23,9 +23,10 @@
             <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
         </spring:bind>
         <appfuse:label styleClass="control-label" key="person.lastName"/>
-        <form:input path="lastName" id="lastName" maxlength="50" cssClass="form-control"/>
+        <form:input path="lastName" id="memo" maxlength="50" cssClass="form-control"/>
         <form:errors path="lastName" cssClass="help-block"/>
         </div>
+
 
         <div class="form-group form-actions">
             <button type="submit" class="btn btn-primary" name="save" onclick="bCancel=false">
