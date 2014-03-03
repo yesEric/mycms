@@ -28,8 +28,8 @@
             <value description="url">/</value>
             <value description="priority">1</value>
             <value description="type">1</value>
-            <value description="name">root</value>
-            <value description="memo">root</value>
+            <value description="name">根节点</value>
+            <value description="memo">根节点</value>
 
         </row>
         <row>

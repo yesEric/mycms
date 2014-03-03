@@ -1,6 +1,11 @@
 package com.mycms.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.support.MessageSourceAccessor;
+
 import java.io.Serializable;
+import java.util.Locale;
 
 
 /**
@@ -31,4 +36,15 @@ public abstract class BaseObject implements Serializable {
      * @return hashCode
      */
     public abstract int hashCode();
+
+    private MessageSourceAccessor messages;
+
+    @Autowired
+    public void setMessages(MessageSource messageSource) {
+        messages = new MessageSourceAccessor(messageSource);
+    }
+
+    public String getText(String msgKey, Locale locale) {
+        return messages.getMessage(msgKey, locale);
+    }
 }

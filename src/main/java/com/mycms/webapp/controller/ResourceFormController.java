@@ -1,5 +1,6 @@
 package com.mycms.webapp.controller;
 
+import com.mycms.model.LabelValue;
 import com.mycms.model.Resource;
 import com.mycms.service.ResourceManager;
 import org.apache.commons.lang.StringUtils;
@@ -12,13 +13,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @Controller
 @RequestMapping("/resourceform*")
+@SessionAttributes({"typeList", "priorityList", "parentList"})
 public class ResourceFormController extends BaseFormController {
     private ResourceManager resourceManager = null;
 
@@ -38,7 +43,26 @@ public class ResourceFormController extends BaseFormController {
             throws Exception {
         String id = request.getParameter("id");
 
+        List<LabelValue> typeList = new ArrayList<LabelValue>();
+        typeList.add(new LabelValue(this.getText("resType.one", request.getLocale()), "1"));
+        typeList.add(new LabelValue(this.getText("resType.two", request.getLocale()), "2"));
+        typeList.add(new LabelValue(this.getText("resType.three", request.getLocale()), "3"));
+        request.getSession().setAttribute("typeList", typeList);
+
+        List<LabelValue> pList = new ArrayList<LabelValue>();
+        pList.add(new LabelValue("1", "1"));
+        pList.add(new LabelValue("2", "2"));
+        pList.add(new LabelValue("2", "2"));
+
+        request.getSession().setAttribute("priorityList", pList);
+
+
         if (!StringUtils.isBlank(id)) {
+            Resource resource = resourceManager.get(new Long(id));
+            List<Resource> parentList = new ArrayList<Resource>();
+
+            parentList = resourceManager.findResourcesByParent(resource.getParent().getParent());
+            request.getSession().setAttribute("parentList", parentList);
             return resourceManager.get(new Long(id));
         }
 

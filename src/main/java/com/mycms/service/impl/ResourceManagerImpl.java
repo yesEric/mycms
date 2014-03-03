@@ -26,7 +26,7 @@ public class ResourceManagerImpl extends GenericManagerImpl<Resource, Long> impl
     }
 
     @Override
-    public List<Resource> findResourcesByParent(Long parentId) {
-        return resourceDao.findByParent(parentId);
+    public List<Resource> findResourcesByParent(Resource parent) {
+        return resourceDao.findByParent(parent);
     }
 }

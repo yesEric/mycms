@@ -52,9 +52,15 @@ public class ResourceDaoHibernate extends GenericDaoHibernate<Resource, Long> im
      * @return 符合条件的查询结果
      */
     @Override
-    public List<Resource> findByParent(Long parentId) {
-        Resource parent = new Resource();
-        parent.setId(parentId);
-        return this.getSession().createCriteria(Resource.class).add(Restrictions.eq("parent", parent)).list();
+    public List<Resource> findByParent(Resource parent) {
+
+        if (parent != null) {
+
+            return this.getSession().createCriteria(Resource.class).add(Restrictions.eq("parent", parent)).list();
+        } else {
+            return this.getSession().createCriteria(Resource.class).add(Restrictions.isNull("parent")).list();
+        }
     }
+
+
 }

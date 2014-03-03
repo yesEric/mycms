@@ -31,7 +31,9 @@ public class ResourceController {
             parentId = new Long(request.getParameter("parentId"));
         }
 
-        ModelAndView mav = new ModelAndView().addObject("resourceList", resourceManager.findResourcesByParent(parentId));
+        Resource parent = new Resource();
+        parent.setId(parentId);
+        ModelAndView mav = new ModelAndView().addObject("resourceList", resourceManager.findResourcesByParent(parent));
         mav.setViewName("resourceList");
         return mav;
     }

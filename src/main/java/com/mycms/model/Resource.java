@@ -1,10 +1,13 @@
 package com.mycms.model;
 
+import com.mycms.dao.ResourceDao;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,23 +15,35 @@ import java.util.Set;
  */
 @Entity
 public class Resource extends BaseObject {
+
+    //    private ResourceDao resourceDao;
     private Long id;
     private String url;
     private Integer priority;//1-5,1最高，5最低
     private Integer type; //1:菜单；2：按钮，3：其他资源
     private String name;
     private String memo;
-
     private Resource parent;//如果是菜单，定义其父辈目录的id
     //当前菜单的子菜单项目
     private Set<Resource> subResources = new HashSet<Resource>();
+    //当前菜单所有平级的父辈项目
+    // private Set<Resource> parentResources = new HashSet<Resource>();
 
+//    @Autowired
+//    public void setResourceDao(ResourceDao resourceDao) {
+//        this.resourceDao = resourceDao;
+//    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "parentId")
     public Resource getParent() {
         return parent;
     }
+
+//    @Transient
+//    public List<Resource> getParentResources() {
+//        return resourceDao.findByParent(this.getParent().getParent());
+//    }
 
     public void setParent(Resource parent) {
         this.parent = parent;

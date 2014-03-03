@@ -71,7 +71,9 @@
     <div class="container" id="content">
         <%@ include file="/common/messages.jsp" %>
         <div class="row">
-            <decorator:body/>
+
+
+        <decorator:body/>
 
 
         </div>
